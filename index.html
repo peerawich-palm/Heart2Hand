@@ -53,7 +53,7 @@
                             <span class="text-magenta text-xl">🛡️</span>
                             <h2 class="text-navy font-bold text-sm">การันตีความปลอดภัย</h2>
                         </div>
-                        <p class="text-xs text-gray-600">สินค้ามูลค่า > 1,000฿ มีบริการช่างผู้เชี่ยวชาญตรวจเช็คสภาพก่อนส่งมอบให้คุณเลือก</p>
+                        <p class="text-xs text-gray-600">สินค้ามูลค่า > 10,000฿ มีบริการช่างผู้เชี่ยวชาญตรวจเช็คสภาพก่อนส่งมอบให้คุณเลือก</p>
                     </div>
                 </div>
 
@@ -546,7 +546,8 @@
             }
 
             filteredProducts.forEach(product => {
-                const isHighValue = product.price > 1000;
+                // แก้ไขเป็น > 10,000
+                const isHighValue = product.price > 10000;
                 const badgeHtml = isHighValue 
                     ? `<div class="absolute top-1 right-1 bg-navy text-white text-[8px] px-1.5 py-0.5 rounded-full font-bold shadow-md flex items-center gap-1"><span class="text-magenta">★</span> High-Value</div>` 
                     : '';
@@ -587,7 +588,8 @@
             if(!product) return;
             currentActiveProduct = product; 
 
-            if (product.price > 1000) {
+            // แก้ไขเป็น > 10,000
+            if (product.price > 10000) {
                 document.getElementById('detail-high-img').src = product.img;
                 document.getElementById('detail-high-title').innerText = product.title;
                 document.getElementById('detail-high-price').innerText = '฿' + product.price.toLocaleString();
@@ -630,7 +632,7 @@
             else if (type === 'split') {
                 const remaining = p.price + 200; 
 
-                // Reset Payment Box (โค้ดแก้บัคจากคราวก่อน)
+                // Reset Payment Box
                 document.getElementById('final-payment-box').innerHTML = `
                     <h3 class="font-bold text-sm mb-2 relative z-10">ขั้นตอนสุดท้าย</h3>
                     <p class="text-xs opacity-90 mb-4 relative z-10">กรุณาชำระเงินค่าสินค้าส่วนที่เหลือ เพื่อให้ศูนย์ดำเนินการจัดส่งสินค้าไปยังที่อยู่ของคุณ</p>
